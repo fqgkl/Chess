@@ -15,7 +15,7 @@ class ChessGame:
         ]
 
     def make_move(self, move):
-        print(f"Making move: {move}")
+        print(f"Move: {move}")
 
 if __name__ == "__main__":
     game = ChessGame()
