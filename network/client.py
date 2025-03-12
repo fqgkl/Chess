@@ -1,8 +1,21 @@
 import socket
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(("127.0.0.1", 5555))
+class Client:
+    """
+    Класс Client представляет клиента для подключения к серверу.
+    """
+    def __init__(self, server_ip="127.0.0.1", server_port=5555):
+        """
+        Инициализация клиента.
+        
+        :param server_ip: IP-адрес сервера
+        :param server_port: Порт сервера
+        """
+        self.server_ip = server_ip
+        self.server_port = server_port
 
-message = client.recv(1024).decode()
-print(message)
-client.close()
+    def connect(self):
+        """
+        Подключается к серверу и получает сообщение.
+        """
+        print("Подключение к серверу...")

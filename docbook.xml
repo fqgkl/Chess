@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+
+<book>
+  <title>Документация шахматного ИИ и сетевого приложения</title>
+  
+  <chapter>
+    <title>Введение</title>
+    <para>
+      Данный документ описывает шахматное приложение, включающее ИИ, сетевой режим и игровую логику.
+    </para>
+  </chapter>
+  
+  <chapter>
+    <title>Описание классов</title>
+    
+    <section>
+      <title>ChessAI</title>
+      <para>
+        Класс, представляющий шахматный искусственный интеллект, использующий алгоритм Minimax.
+      </para>
+    </section>
+    
+    <section>
+      <title>Evaluation</title>
+      <para>
+        Класс, отвечающий за оценку позиции на шахматной доске.
+      </para>
+    </section>
+    
+    <section>
+      <title>ChessGame</title>
+      <para>
+        Основной класс, управляющий логикой шахматной игры.
+      </para>
+    </section>
+    
+    <section>
+      <title>Chat</title>
+      <para>
+        Класс, реализующий систему обмена сообщениями между игроками.
+      </para>
+    </section>
+    
+    <section>
+      <title>Server и Client</title>
+      <para>
+        Классы для организации сетевого взаимодействия между игроками.
+      </para>
+    </section>
+  </chapter>
+  
+  <chapter>
+    <title>Сценарии использования</title>
+    
+    <section>
+      <title>Игра против ИИ</title>
+      <programlisting>
+from ai import ChessAI
+from board import ChessBoard
+
+board = ChessBoard()
+ai = ChessAI(difficulty=3)
+board.display()
+ai.make_best_move(None)
+      </programlisting>
+    </section>
+    
+    <section>
+      <title>Проверка валидности хода</title>
+      <programlisting>
+from game_logic import ChessGame
+
+chess_game = ChessGame()
+chess_game.board.display()
+chess_game.make_move("e2-e4")
+      </programlisting>
+    </section>
+    
+    <section>
+      <title>Подключение к сетевой игре</title>
+      <programlisting>
+from server import Server
+server = Server()
+server.start()
+      </programlisting>
+      <programlisting>
+from client import Client
+client = Client(server_ip="127.0.0.1", server_port=5555)
+client.connect()
+      </programlisting>
+    </section>
+  </chapter>
+</book>

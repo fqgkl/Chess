@@ -1,13 +1,21 @@
 import socket
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("0.0.0.0", 5555))
-server.listen(2)
+class Server:
+    """
+    Класс Server реализует сервер для сетевой игры.
+    """
+    def __init__(self, host="0.0.0.0", port=5555):
+        """
+        Инициализация сервера.
+        
+        :param host: Адрес сервера
+        :param port: Порт сервера
+        """
+        self.host = host
+        self.port = port
 
-print("Сервер запущен. Ожидание игроков...")
-
-while True:
-    conn, addr = server.accept()
-    print(f"Игрок подключился: {addr}")
-    conn.send("Добро пожаловать в сетевую шахматную игру!".encode())
-    conn.close()
+    def start(self):
+        """
+        Запускает сервер и ожидает подключения игроков.
+        """
+        print("Сервер запущен. Ожидание игроков...")
